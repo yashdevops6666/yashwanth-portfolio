@@ -17,7 +17,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-
 // Add animation on scroll
 const observerOptions = {
     threshold: 0.1,
@@ -44,22 +43,15 @@ document.querySelectorAll('.experience-card, .education-card, .contact-item').fo
 
 // Animate skill bars on scroll into view
 const skillBars = document.querySelectorAll('.bar-fill');
-skillBars.forEach(bar => {
-    bar.style.width = '0';
-});
-
 function animateSkillBars() {
     skillBars.forEach(bar => {
         const rect = bar.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-            bar.style.width = bar.parentElement.getAttribute('data-width') || bar.style.width;
-            bar.classList.add('animated');
+        if (rect.top < window.innerHeight) {
+            bar.style.width = bar.parentElement.getAttribute('data-width');
         }
     });
 }
-
 window.addEventListener('scroll', animateSkillBars);
-window.addEventListener('load', animateSkillBars);
 
 // Animate background circles
 document.querySelectorAll('.animated-bg .circle').forEach((circle, i) => {
@@ -72,5 +64,18 @@ document.querySelectorAll('.animated-bg .circle').forEach((circle, i) => {
         iterations: Infinity
     });
 });
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+function toggleTheme() {
+    body.classList.toggle('dark-theme');
+    const icon = themeToggle.querySelector('i');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+}
+
+themeToggle.addEventListener('click', toggleTheme);
 
 console.log('Portfolio loaded successfully');
