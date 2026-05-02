@@ -225,19 +225,109 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // ============================================
-// SCHEDULE FORM FEEDBACK
+// EMAILJS CONFIG
+// Fill in your values from https://dashboard.emailjs.com
 // ============================================
-(function initForm() {
-    const form = document.getElementById('schedule-form');
-    if (!form) return;
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const orig = btn.textContent;
-        btn.textContent = 'Message Sent!';
-        btn.style.background = 'linear-gradient(135deg,#00ff9d,#00e5ff)';
-        setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3000);
-    });
+const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';    // Account → API Keys
+const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';    // Email Services tab
+const EMAILJS_TEMPLATE_SCH = 'YOUR_TEMPLATE_ID';   // Email Templates tab (schedule)
+const EMAILJS_TEMPLATE_CON = 'YOUR_TEMPLATE_ID';   // can reuse same template for contact
+
+// Init EmailJS once
+if (typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
+// ============================================
+// FORM HANDLER (schedule + contact)
+// ============================================
+(function initForms() {
+    // --- Schedule form ---
+    const schedForm = document.getElementById('schedule-form');
+    if (schedForm) {
+        schedForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            const btn  = schedForm.querySelector('button[type="submit"]');
+            const orig = btn.innerHTML;
+
+            btn.innerHTML  = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+            btn.disabled   = true;
+
+            const params = {
+                from_name    : schedForm.querySelector('[name="name"]')?.value    || schedForm.querySelector('#s-name')?.value    || '',
+                from_email   : schedForm.querySelector('[name="email"]')?.value   || schedForm.querySelector('#s-email')?.value   || '',
+                meeting_type : schedForm.querySelector('[name="type"]')?.value    || schedForm.querySelector('#s-type')?.value    || '',
+                preferred_date: schedForm.querySelector('[name="date"]')?.value   || schedForm.querySelector('#s-date')?.value    || '',
+                company      : schedForm.querySelector('[name="company"]')?.value || schedForm.querySelector('#s-company')?.value || '',
+                message      : schedForm.querySelector('[name="message"]')?.value || schedForm.querySelector('#s-message')?.value || '',
+                subject      : 'New Appointment Request',
+                to_name      : 'Yashwanth',
+            };
+
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_SCH, params);
+                btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Appointment Requested!';
+                btn.style.background = 'linear-gradient(135deg,#00ff9d,#00e5ff)';
+                schedForm.reset();
+                setTimeout(() => {
+                    btn.innerHTML  = orig;
+                    btn.style.background = '';
+                    btn.disabled   = false;
+                }, 5000);
+            } catch (err) {
+                console.error('EmailJS error:', err);
+                btn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Failed — try again';
+                btn.style.background = 'linear-gradient(135deg,#ff2d78,#9b59ff)';
+                setTimeout(() => {
+                    btn.innerHTML  = orig;
+                    btn.style.background = '';
+                    btn.disabled   = false;
+                }, 4000);
+            }
+        });
+    }
+
+    // --- Contact form ---
+    const contactForm = document.querySelector('form:not(#schedule-form)');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            const btn  = contactForm.querySelector('button[type="submit"]');
+            const orig = btn.innerHTML;
+
+            btn.innerHTML  = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+            btn.disabled   = true;
+
+            const params = {
+                from_name  : contactForm.querySelector('#c-name')?.value    || '',
+                from_email : contactForm.querySelector('#c-email')?.value   || '',
+                subject    : contactForm.querySelector('#c-subject')?.value || '',
+                message    : contactForm.querySelector('#c-message')?.value || '',
+                to_name    : 'Yashwanth',
+            };
+
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CON, params);
+                btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
+                btn.style.background = 'linear-gradient(135deg,#00ff9d,#00e5ff)';
+                contactForm.reset();
+                setTimeout(() => {
+                    btn.innerHTML  = orig;
+                    btn.style.background = '';
+                    btn.disabled   = false;
+                }, 5000);
+            } catch (err) {
+                console.error('EmailJS error:', err);
+                btn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Failed — try again';
+                btn.style.background = 'linear-gradient(135deg,#ff2d78,#9b59ff)';
+                setTimeout(() => {
+                    btn.innerHTML  = orig;
+                    btn.style.background = '';
+                    btn.disabled   = false;
+                }, 4000);
+            }
+        });
+    }
 })();
 
 console.log('%c⚡ Portfolio loaded', 'color:#00e5ff;font-family:monospace;font-size:13px');
