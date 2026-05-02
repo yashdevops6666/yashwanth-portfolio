@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About — Yashwanth Keerthi</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <div id="scroll-progress"></div>
+    <div class="grid-bg"></div>
+    <canvas id="particle-canvas"></canvas>
+
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Yashwanth Keerthi</div>
+            <a class="logo" href="index.html">YK<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -20,15 +23,174 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- About Section -->
-    <section class="about glass">
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="hero-glow"></div>
         <div class="container">
-            <h2>About Me</h2>
-            <p>With a Master's degree in Computer Science, I specialize in DevOps engineering...</p>
+            <div class="page-hero-content">
+                <span class="section-tag">About Me</span>
+                <h1>My Journey in DevOps</h1>
+                <p>Engineer, problem-solver, and infrastructure enthusiast building reliable systems at scale.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ BIO ═══════════ -->
+    <section style="padding:80px 0;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-avatar-wrap reveal">
+                    <div>
+                        <div class="about-avatar-frame">
+                            <div class="about-avatar-inner">
+                                <i class="fa-solid fa-terminal" style="color:var(--neon-cyan);font-size:5rem;opacity:.55;"></i>
+                            </div>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item"><div class="stat-number">3+</div><div class="stat-label">Years Exp.</div></div>
+                            <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Projects</div></div>
+                            <div class="stat-item"><div class="stat-number">5+</div><div class="stat-label">Certs</div></div>
+                            <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Tools</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text reveal reveal-delay-2">
+                    <h3>Hi, I'm Yashwanth Keerthi</h3>
+                    <p>I'm a DevOps Engineer with a Master's degree in Computer Science, specializing in cloud infrastructure, containerization, and CI/CD automation. My mission is to bridge the gap between development and operations by building reliable, scalable, and automated systems.</p>
+                    <p>Throughout my career, I've worked on everything from setting up Kubernetes clusters on bare metal to architecting multi-region AWS deployments. I believe in infrastructure as code, GitOps principles, and the power of observability to maintain system reliability.</p>
+                    <p>When I'm not optimizing pipelines, I enjoy contributing to open-source projects and staying current with the ever-evolving cloud native ecosystem.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-graduation-cap"></i><span>M.S. Computer Science</span></div>
+                        <div class="highlight-item"><i class="fa-solid fa-certificate"></i><span>AWS Solutions Architect — Associate</span></div>
+                        <div class="highlight-item"><i class="fa-solid fa-certificate"></i><span>Azure DevOps Engineer Expert</span></div>
+                        <div class="highlight-item"><i class="fa-solid fa-certificate"></i><span>Certified Kubernetes Administrator (CKA)</span></div>
+                        <div class="highlight-item"><i class="fa-solid fa-location-dot"></i><span>Open to Remote &amp; Hybrid Roles</span></div>
+                    </div>
+                    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+                        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Get In Touch</a>
+                        <a href="schedule.html" class="btn btn-outline"><i class="fa-solid fa-calendar-check"></i> Schedule a Call</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- ═══════════ EXPERIENCE ═══════════ -->
+    <section style="padding:0 0 90px;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Work History</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="timeline">
+                <!-- Job 1 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+                            <div>
+                                <h3 style="font-family:var(--font-heading);font-size:1.25rem;color:var(--text-primary);margin-bottom:7px;">DevOps Engineer</h3>
+                                <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--neon-cyan);background:var(--neon-cyan-dim);border:1px solid var(--border-bright);padding:3px 12px;border-radius:100px;">Cloud Innovations Inc.</span>
+                            </div>
+                            <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-muted);">Jan 2023 — Present</span>
+                        </div>
+                        <ul style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;list-style:none;">
+                            <li style="padding-left:18px;position:relative;margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--neon-cyan);">›</span>Architected AWS EKS clusters supporting 100+ microservices with 99.9% uptime SLA across 3 regions</li>
+                            <li style="padding-left:18px;position:relative;margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--neon-cyan);">›</span>Implemented GitOps workflows using ArgoCD, reducing deployment errors by 85% and enabling rollback in &lt;2 minutes</li>
+                            <li style="padding-left:18px;position:relative;margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--neon-cyan);">›</span>Built Terraform modules managing 500+ cloud resources, cutting provisioning time from days to minutes</li>
+                            <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--neon-cyan);">›</span>Led migration of 20 legacy apps to containerized microservices, improving deployment frequency 10×</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-dot" style="background:var(--neon-purple);box-shadow:0 0 16px rgba(155,89,255,.65);"></div>
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+                            <div>
+                                <h3 style="font-family:var(--font-heading);font-size:1.25rem;color:var(--text-primary);margin-bottom:7px;">Cloud Infrastructure Engineer</h3>
+                                <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--neon-purple);background:var(--neon-purple-dim);border:1px solid rgba(155,89,255,.3);padding:3px 12px;border-radius:100px;">TechScale Solutions</span>
+                            </div>
+                            <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-muted);">Jun 2021 — Dec 2022</span>
+                        </div>
+                        <ul style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;list-style:none;">
+                            <li style="padding-left:18px;position:relative;margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--neon-purple);">›</span>Migrated legacy monolith to containerized microservices architecture, cutting infrastructure cost by 35%</li>
+                            <li style="padding-left:18px;position:relative;margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--neon-purple);">›</span>Designed CI/CD pipelines with Jenkins and GitHub Actions across 30+ repositories and 5 environments</li>
+                            <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--neon-purple);">›</span>Set up centralized ELK Stack monitoring reducing MTTR from 2 hours to under 15 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-dot" style="background:var(--neon-pink);box-shadow:0 0 16px rgba(255,45,120,.65);"></div>
+                    <div class="card">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+                            <div>
+                                <h3 style="font-family:var(--font-heading);font-size:1.25rem;color:var(--text-primary);margin-bottom:7px;">Systems Engineer Intern</h3>
+                                <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--neon-pink);background:var(--neon-pink-dim);border:1px solid rgba(255,45,120,.3);padding:3px 12px;border-radius:100px;">DataBridge Corp</span>
+                            </div>
+                            <span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-muted);">Jan 2021 — May 2021</span>
+                        </div>
+                        <ul style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;list-style:none;">
+                            <li style="padding-left:18px;position:relative;margin-bottom:8px;"><span style="position:absolute;left:0;color:var(--neon-pink);">›</span>Automated server provisioning with Ansible playbooks, reducing manual setup from 4 hours to 20 minutes</li>
+                            <li style="padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--neon-pink);">›</span>Assisted in configuring Prometheus + Grafana dashboards for real-time infrastructure monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ EDUCATION ═══════════ -->
+    <section style="padding:0 0 100px;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Education</span>
+                <h2 class="section-title">Academic Background</h2>
+                <div class="section-line"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:860px;margin:0 auto;">
+                <div class="card reveal reveal-delay-1" style="text-align:center;border-top:3px solid var(--neon-cyan);">
+                    <div style="font-size:2.6rem;margin-bottom:16px;">🎓</div>
+                    <h3 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-bottom:8px;">Master of Science</h3>
+                    <p style="font-size:0.9rem;color:var(--neon-cyan);margin-bottom:6px;">Computer Science</p>
+                    <p style="font-size:0.85rem;color:var(--text-secondary);">State University</p>
+                    <p style="font-family:var(--font-mono);font-size:0.73rem;color:var(--text-muted);margin-top:8px;">2019 — 2021</p>
+                </div>
+                <div class="card reveal reveal-delay-2" style="text-align:center;border-top:3px solid var(--neon-purple);">
+                    <div style="font-size:2.6rem;margin-bottom:16px;">🎓</div>
+                    <h3 style="font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);margin-bottom:8px;">Bachelor of Engineering</h3>
+                    <p style="font-size:0.9rem;color:var(--neon-purple);margin-bottom:6px;">Computer Science &amp; Engineering</p>
+                    <p style="font-size:0.85rem;color:var(--text-secondary);">National Institute of Technology</p>
+                    <p style="font-family:var(--font-mono);font-size:0.73rem;color:var(--text-muted);margin-top:8px;">2015 — 2019</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">YK<span style="color:var(--neon-purple);">.</span></div>
+            <p>Yashwanth Keerthi &copy; 2025 &mdash; DevOps Engineer</p>
+            <div class="footer-links">
+                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:iamkeerthiyashwanth@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

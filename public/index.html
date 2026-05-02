@@ -3,87 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashwanth Keerthi - DevOps Engineer</title>
+    <title>Yashwanth Keerthi — DevOps Engineer</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Redesigned Portfolio Structure -->
-    <div class="container">
-        <!-- Animated Background -->
-        <div class="animated-bg">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+    <div id="scroll-progress"></div>
+    <div class="grid-bg"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="index.html">YK<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </nav>
 
-        <!-- Theme Toggle Button -->
-        <button id="theme-toggle" aria-label="Toggle theme">
-            <i class="fa-solid fa-moon"></i>
-        </button>
-
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">Yashwanth Keerthi</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="schedule.html">Schedule</a></li>
-                </ul>
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>Available for Opportunities</span>
             </div>
-        </nav>
+            <h1 class="hero-title">
+                <span class="line1 glitch" data-text="YASHWANTH KEERTHI">YASHWANTH KEERTHI</span>
+                <span class="line2">DevOps Engineer</span>
+            </h1>
+            <p class="hero-tagline">
+                &gt;&nbsp;Specializing in&nbsp;<span class="typing-text"></span><span class="cursor"></span>
+            </p>
+            <div class="hero-buttons">
+                <a href="projects.html" class="btn btn-primary">
+                    <i class="fa-solid fa-code-branch"></i> View My Work
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fa-solid fa-paper-plane"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Hero Section -->
-        <section class="hero glass">
-            <div class="container">
-                <h1>Yashwanth Keerthi</h1>
-                <p class="tagline">DevOps Engineer | Building Reliable Cloud Systems</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="#projects" class="btn btn-secondary">My Projects</a>
+    <!-- ═══════════ ABOUT PREVIEW ═══════════ -->
+    <section style="padding:100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Who I Am</span>
+                <h2 class="section-title">Building Resilient Systems</h2>
+                <p class="section-subtitle">DevOps engineer passionate about automation, cloud infrastructure, and deployment pipelines that just work.</p>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <!-- Avatar & Stats -->
+                <div class="about-avatar-wrap reveal">
+                    <div>
+                        <div class="about-avatar-frame">
+                            <div class="about-avatar-inner">
+                                <i class="fa-solid fa-terminal" style="color:var(--neon-cyan);font-size:5rem;opacity:.55;"></i>
+                            </div>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item"><div class="stat-number">3+</div><div class="stat-label">Years Exp.</div></div>
+                            <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Projects</div></div>
+                            <div class="stat-item"><div class="stat-number">5+</div><div class="stat-label">Certifications</div></div>
+                            <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Technologies</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="about-text reveal reveal-delay-2">
+                    <h3>Hi, I'm Yashwanth Keerthi</h3>
+                    <p>With a Master's degree in Computer Science, I specialize in building and maintaining scalable cloud infrastructure. My expertise spans the full DevOps lifecycle — from infrastructure provisioning to continuous delivery pipelines.</p>
+                    <p>I'm passionate about automation, reliability engineering, and helping teams ship faster with confidence. Whether designing multi-cloud architectures or optimizing Kubernetes deployments, I thrive on solving complex infrastructure challenges.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item"><i class="fa-solid fa-graduation-cap"></i><span>M.S. Computer Science</span></div>
+                        <div class="highlight-item"><i class="fa-solid fa-cloud"></i><span>AWS · Azure · GCP Certified</span></div>
+                        <div class="highlight-item"><i class="fa-solid fa-location-dot"></i><span>Open to Remote &amp; On-site Roles</span></div>
+                    </div>
+                    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+                        <a href="about.html" class="btn btn-primary">More About Me</a>
+                        <a href="schedule.html" class="btn btn-outline">Schedule a Call</a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="about glass">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>With a Master's degree in Computer Science, I specialize in DevOps engineering...</p>
+    <!-- ═══════════ SKILLS PREVIEW ═══════════ -->
+    <section style="padding:100px 0;background:rgba(0,229,255,.012);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Core Technologies</h2>
+                <div class="section-line"></div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <h2>Skills</h2>
-                <div class="skill-bar" data-width="90%">
-                    <span>Azure</span>
-                    <div class="bar-fill"></div>
+            <div class="skills-categories">
+                <div class="skill-category-card reveal reveal-delay-1">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-brands fa-aws"></i></div>
+                        <h3>Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span><span class="skill-tag">EC2</span>
+                        <span class="skill-tag">EKS</span><span class="skill-tag">Lambda</span>
+                    </div>
+                </div>
+                <div class="skill-category-card reveal reveal-delay-2">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-brands fa-docker"></i></div>
+                        <h3>Containers &amp; Orchestration</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Helm</span><span class="skill-tag">Istio</span>
+                        <span class="skill-tag">ArgoCD</span>
+                    </div>
+                </div>
+                <div class="skill-category-card reveal reveal-delay-3">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-code-branch"></i></div>
+                        <h3>CI/CD &amp; Automation</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span><span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">GitLab CI</span><span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                    </div>
+                </div>
+                <div class="skill-category-card reveal reveal-delay-4">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Monitoring &amp; Observability</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span><span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">ELK Stack</span><span class="skill-tag">Datadog</span>
+                        <span class="skill-tag">PagerDuty</span>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects glass">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="project-card">Project 1</div>
+            <div style="text-align:center;margin-top:40px;" class="reveal">
+                <a href="skills.html" class="btn btn-outline">View All Skills <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Email: yashwanth@example.com</p>
+    <!-- ═══════════ PROJECTS PREVIEW ═══════════ -->
+    <section style="padding:100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
             </div>
-        </section>
-    </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-image">
+                        <i class="fa-solid fa-dharmachakra"></i>
+                        <div class="project-image-overlay"></div>
+                        <span class="project-number">01</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tag-row">
+                            <span class="project-tag">Kubernetes</span>
+                            <span class="project-tag">Cloud</span>
+                        </div>
+                        <h3 class="project-title">Multi-Cluster K8s Platform</h3>
+                        <p class="project-desc">Designed and deployed a multi-cluster Kubernetes management platform handling 50+ microservices with auto-scaling and zero-downtime deployments.</p>
+                        <div class="project-tech">
+                            <span class="tech-pill">Kubernetes</span><span class="tech-pill">Helm</span>
+                            <span class="tech-pill">ArgoCD</span><span class="tech-pill">Istio</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fa-brands fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-image" style="background:linear-gradient(135deg,var(--bg-secondary),var(--neon-purple-dim));">
+                        <i class="fa-solid fa-gears" style="color:var(--neon-purple);"></i>
+                        <div class="project-image-overlay"></div>
+                        <span class="project-number">02</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tag-row">
+                            <span class="project-tag" style="color:var(--neon-purple);background:var(--neon-purple-dim);border-color:rgba(155,89,255,.28);">CI/CD</span>
+                            <span class="project-tag" style="color:var(--neon-purple);background:var(--neon-purple-dim);border-color:rgba(155,89,255,.28);">Automation</span>
+                        </div>
+                        <h3 class="project-title">CI/CD Pipeline Framework</h3>
+                        <p class="project-desc">Reusable CI/CD pipeline framework reducing deployment time by 70% and increasing release frequency from weekly to multiple daily deployments.</p>
+                        <div class="project-tech">
+                            <span class="tech-pill">GitHub Actions</span><span class="tech-pill">Jenkins</span>
+                            <span class="tech-pill">Docker</span><span class="tech-pill">Terraform</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fa-brands fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal reveal-delay-3">
+                    <div class="project-image" style="background:linear-gradient(135deg,var(--bg-secondary),var(--neon-pink-dim));">
+                        <i class="fa-solid fa-cloud" style="color:var(--neon-pink);"></i>
+                        <div class="project-image-overlay"></div>
+                        <span class="project-number">03</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tag-row">
+                            <span class="project-tag" style="color:var(--neon-pink);background:var(--neon-pink-dim);border-color:rgba(255,45,120,.28);">Cloud</span>
+                            <span class="project-tag" style="color:var(--neon-pink);background:var(--neon-pink-dim);border-color:rgba(255,45,120,.28);">FinOps</span>
+                        </div>
+                        <h3 class="project-title">Cloud Cost Optimizer</h3>
+                        <p class="project-desc">Intelligent cloud cost monitoring dashboard that identified $40K/month in savings through resource right-sizing and automated scheduling.</p>
+                        <div class="project-tech">
+                            <span class="tech-pill">AWS Cost Explorer</span>
+                            <span class="tech-pill">Python</span><span class="tech-pill">Grafana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fa-brands fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:48px;" class="reveal">
+                <a href="projects.html" class="btn btn-outline">View All Projects <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ CONTACT CTA ═══════════ -->
+    <section style="padding:100px 0;text-align:center;">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-tag">Let's Connect</span>
+                <h2 class="section-title" style="margin-top:14px;">Ready to Build Something Great?</h2>
+                <p class="section-subtitle" style="margin-top:12px;">Whether you need a DevOps engineer for your team or want to discuss infrastructure challenges, I'd love to hear from you.</p>
+                <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:42px;">
+                    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Send a Message</a>
+                    <a href="schedule.html" class="btn btn-outline"><i class="fa-solid fa-calendar-check"></i> Schedule a Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">YK<span style="color:var(--neon-purple);">.</span></div>
+            <p>Yashwanth Keerthi &copy; 2025 &mdash; DevOps Engineer</p>
+            <div class="footer-links">
+                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="mailto:iamkeerthiyashwanth@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

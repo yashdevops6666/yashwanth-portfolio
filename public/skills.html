@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills</title>
+    <title>Skills — Yashwanth Keerthi</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <div id="scroll-progress"></div>
+    <div class="grid-bg"></div>
+    <canvas id="particle-canvas"></canvas>
+
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Yashwanth Keerthi</div>
+            <a class="logo" href="index.html">YK<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -20,18 +23,282 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Skills Section -->
-    <section class="skills glass">
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="hero-glow"></div>
         <div class="container">
-            <h2>Skills</h2>
-            <div class="skill-bar" data-width="90%">
-                <span>Azure</span>
-                <div class="bar-fill"></div>
+            <div class="page-hero-content">
+                <span class="section-tag">Technical Stack</span>
+                <h1>Skills &amp; Expertise</h1>
+                <p>A full-stack DevOps toolkit — from cloud provisioning to CI/CD and observability.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ SKILL CATEGORIES ═══════════ -->
+    <section style="padding:80px 0 60px;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Categories</span>
+                <h2 class="section-title">Technology Arsenal</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-categories">
+                <!-- Cloud -->
+                <div class="skill-category-card reveal reveal-delay-1">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-brands fa-aws"></i></div>
+                        <h3>Cloud Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Google Cloud</span><span class="skill-tag">EC2</span>
+                        <span class="skill-tag">EKS</span><span class="skill-tag">Lambda</span>
+                        <span class="skill-tag">S3</span><span class="skill-tag">CloudFront</span>
+                        <span class="skill-tag">Azure AKS</span><span class="skill-tag">GKE</span>
+                    </div>
+                </div>
+
+                <!-- Containers -->
+                <div class="skill-category-card reveal reveal-delay-2">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-brands fa-docker"></i></div>
+                        <h3>Containers &amp; Orchestration</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Helm</span><span class="skill-tag">Istio</span>
+                        <span class="skill-tag">ArgoCD</span><span class="skill-tag">Flux</span>
+                        <span class="skill-tag">containerd</span><span class="skill-tag">Podman</span>
+                    </div>
+                </div>
+
+                <!-- CI/CD -->
+                <div class="skill-category-card reveal reveal-delay-3">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-code-branch"></i></div>
+                        <h3>CI/CD &amp; Automation</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GitHub Actions</span><span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitLab CI</span><span class="skill-tag">CircleCI</span>
+                        <span class="skill-tag">Tekton</span><span class="skill-tag">Spinnaker</span>
+                    </div>
+                </div>
+
+                <!-- IaC -->
+                <div class="skill-category-card reveal reveal-delay-4">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3>Infrastructure as Code</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Terraform</span><span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">CloudFormation</span><span class="skill-tag">Pulumi</span>
+                        <span class="skill-tag">Chef</span><span class="skill-tag">Packer</span>
+                    </div>
+                </div>
+
+                <!-- Monitoring -->
+                <div class="skill-category-card reveal reveal-delay-1">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon" style="background:var(--neon-purple-dim);border-color:rgba(155,89,255,.3);color:var(--neon-purple);"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Monitoring &amp; Observability</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span><span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">ELK Stack</span><span class="skill-tag">Datadog</span>
+                        <span class="skill-tag">Jaeger</span><span class="skill-tag">PagerDuty</span>
+                        <span class="skill-tag">New Relic</span>
+                    </div>
+                </div>
+
+                <!-- Scripting -->
+                <div class="skill-category-card reveal reveal-delay-2">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon" style="background:var(--neon-pink-dim);border-color:rgba(255,45,120,.3);color:var(--neon-pink);"><i class="fa-solid fa-terminal"></i></div>
+                        <h3>Scripting &amp; Programming</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span><span class="skill-tag">Bash</span>
+                        <span class="skill-tag">PowerShell</span><span class="skill-tag">Go</span>
+                        <span class="skill-tag">YAML</span><span class="skill-tag">Groovy</span>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="skill-category-card reveal reveal-delay-3">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon" style="background:rgba(0,255,157,.1);border-color:rgba(0,255,157,.3);color:var(--neon-green);"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Security &amp; Compliance</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Vault</span><span class="skill-tag">AWS IAM</span>
+                        <span class="skill-tag">Trivy</span><span class="skill-tag">SonarQube</span>
+                        <span class="skill-tag">OWASP</span><span class="skill-tag">SAST/DAST</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skill-category-card reveal reveal-delay-4">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon" style="background:var(--neon-purple-dim);border-color:rgba(155,89,255,.3);color:var(--neon-purple);"><i class="fa-solid fa-database"></i></div>
+                        <h3>Databases &amp; Storage</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span><span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Elasticsearch</span><span class="skill-tag">S3</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ═══════════ PROFICIENCY BARS ═══════════ -->
+    <section style="padding:20px 0 100px;background:rgba(0,229,255,.012);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Proficiency</span>
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skill-bars-grid">
+                <div class="skill-bar-item reveal reveal-delay-1" data-pct="95%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Docker</span>
+                        <span class="skill-bar-percent">95%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill cyan"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-2" data-pct="92%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Kubernetes</span>
+                        <span class="skill-bar-percent">92%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill cyan"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-3" data-pct="93%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">CI/CD Pipelines</span>
+                        <span class="skill-bar-percent">93%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill purple"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-4" data-pct="88%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Terraform</span>
+                        <span class="skill-bar-percent">88%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill purple"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-1" data-pct="90%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">AWS</span>
+                        <span class="skill-bar-percent">90%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill green"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-2" data-pct="87%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Azure</span>
+                        <span class="skill-bar-percent">87%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill green"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-3" data-pct="85%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Python</span>
+                        <span class="skill-bar-percent">85%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill pink"></div>
+                    </div>
+                </div>
+                <div class="skill-bar-item reveal reveal-delay-4" data-pct="82%">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">Ansible</span>
+                        <span class="skill-bar-percent">82%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill pink"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ CERTIFICATIONS ═══════════ -->
+    <section style="padding:0 0 100px;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Credentials</span>
+                <h2 class="section-title">Certifications</h2>
+                <div class="section-line"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:900px;margin:0 auto;">
+                <div class="card reveal reveal-delay-1" style="display:flex;align-items:center;gap:16px;padding:22px 24px;">
+                    <div style="width:48px;height:48px;background:var(--neon-cyan-dim);border:1px solid var(--border-bright);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--neon-cyan);flex-shrink:0;">🏆</div>
+                    <div>
+                        <div style="font-family:var(--font-heading);font-size:0.95rem;font-weight:600;color:var(--text-primary);">AWS Solutions Architect</div>
+                        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-cyan);margin-top:3px;">Associate — 2023</div>
+                    </div>
+                </div>
+                <div class="card reveal reveal-delay-2" style="display:flex;align-items:center;gap:16px;padding:22px 24px;">
+                    <div style="width:48px;height:48px;background:var(--neon-purple-dim);border:1px solid rgba(155,89,255,.3);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">🏆</div>
+                    <div>
+                        <div style="font-family:var(--font-heading);font-size:0.95rem;font-weight:600;color:var(--text-primary);">Azure DevOps Engineer</div>
+                        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-purple);margin-top:3px;">Expert — 2022</div>
+                    </div>
+                </div>
+                <div class="card reveal reveal-delay-3" style="display:flex;align-items:center;gap:16px;padding:22px 24px;">
+                    <div style="width:48px;height:48px;background:rgba(0,255,157,.1);border:1px solid rgba(0,255,157,.28);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">🏆</div>
+                    <div>
+                        <div style="font-family:var(--font-heading);font-size:0.95rem;font-weight:600;color:var(--text-primary);">Certified Kubernetes Admin</div>
+                        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-green);margin-top:3px;">CKA — 2022</div>
+                    </div>
+                </div>
+                <div class="card reveal reveal-delay-4" style="display:flex;align-items:center;gap:16px;padding:22px 24px;">
+                    <div style="width:48px;height:48px;background:var(--neon-pink-dim);border:1px solid rgba(255,45,120,.28);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">🏆</div>
+                    <div>
+                        <div style="font-family:var(--font-heading);font-size:0.95rem;font-weight:600;color:var(--text-primary);">Terraform Associate</div>
+                        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-pink);margin-top:3px;">HashiCorp — 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">YK<span style="color:var(--neon-purple);">.</span></div>
+            <p>Yashwanth Keerthi &copy; 2025 &mdash; DevOps Engineer</p>
+            <div class="footer-links">
+                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:iamkeerthiyashwanth@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
