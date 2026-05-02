@@ -17,6 +17,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
 // Add animation on scroll
 const observerOptions = {
     threshold: 0.1,
@@ -37,8 +38,39 @@ const observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.experience-card, .education-card, .contact-item').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    card.style.transition = 'opacity 0.6s cubic-bezier(.4,2,.3,1), transform 0.6s cubic-bezier(.4,2,.3,1)';
     observer.observe(card);
+});
+
+// Animate skill bars on scroll into view
+const skillBars = document.querySelectorAll('.bar-fill');
+skillBars.forEach(bar => {
+    bar.style.width = '0';
+});
+
+function animateSkillBars() {
+    skillBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            bar.style.width = bar.parentElement.getAttribute('data-width') || bar.style.width;
+            bar.classList.add('animated');
+        }
+    });
+}
+
+window.addEventListener('scroll', animateSkillBars);
+window.addEventListener('load', animateSkillBars);
+
+// Animate background circles
+document.querySelectorAll('.animated-bg .circle').forEach((circle, i) => {
+    circle.animate([
+        { transform: 'scale(1) translateY(0)' },
+        { transform: 'scale(1.07) translateY(-40px)' },
+        { transform: 'scale(1) translateY(0)' }
+    ], {
+        duration: 18000 + i * 3000,
+        iterations: Infinity
+    });
 });
 
 console.log('Portfolio loaded successfully');
